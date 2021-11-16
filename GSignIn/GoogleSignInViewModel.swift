@@ -14,12 +14,12 @@ class GoogleSignInViewModel: ObservableObject {
   
   @Published var user: UserModel = .empty
   @AppStorage("log_status") var logStatus = false
-
-  init() { }
+  
+  //  init() { }
   
   func handleLogin() {
     guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-
+    
     // Create Google Sign In configuration object.
     let config = GIDConfiguration(clientID: clientID)
     
@@ -35,7 +35,7 @@ class GoogleSignInViewModel: ObservableObject {
       else {
         return
       }
-
+      
       let credential = GoogleAuthProvider.credential(withIDToken: idToken,
                                                      accessToken: authentication.accessToken)
       

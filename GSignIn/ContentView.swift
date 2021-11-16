@@ -8,18 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+  
   @AppStorage("log_status") var logStatus = false
-    var body: some View {
-      if logStatus {
-        HomeView()
-      } else {
-        LoginView()
-      }
+  let gvm = GoogleSignInViewModel()
+  
+  var body: some View {
+    if logStatus {
+      HomeView(vm: gvm)
+    } else {
+      LoginView(vm: gvm)
     }
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+  static var previews: some View {
+    ContentView()
+  }
 }

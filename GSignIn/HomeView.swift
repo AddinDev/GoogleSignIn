@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
-  @ObservedObject var vm = GoogleSignInViewModel()
+  
+  @ObservedObject var vm: GoogleSignInViewModel
+  
   var body: some View {
     VStack {
       Text("Signed In As: \(vm.user.username)")
@@ -18,11 +20,5 @@ struct HomeView: View {
         Text("Logout")
       }
     }
-  }
-}
-
-struct HomeView_Previews: PreviewProvider {
-  static var previews: some View {
-    HomeView()
   }
 }

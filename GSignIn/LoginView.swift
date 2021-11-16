@@ -11,8 +11,8 @@ import GoogleSignIn
 
 struct LoginView: View {
   
-  @ObservedObject var vm = GoogleSignInViewModel()
-  
+  @ObservedObject var vm: GoogleSignInViewModel
+
     var body: some View {
       VStack {
         Button(action: {
@@ -20,12 +20,7 @@ struct LoginView: View {
         }) {
           Text("Login")
         }
+        Text(vm.user.username)
       }
-    }
-}
-
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
     }
 }
